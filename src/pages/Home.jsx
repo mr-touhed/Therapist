@@ -1,6 +1,7 @@
 
+import SearchBox from "../components/Home/SearchBox";
+import TopMenu from "../components/Home/TopMenu";
 import MenuItems from "./MenuItems";
-
 
 
 const Home = () => {
@@ -10,7 +11,8 @@ const Home = () => {
                 <MenuItems/>
             </aside>
             <main className="bg-[#EEF2F5] flex-1">
-                    main content
+                    <TopMenu/>
+                    <SearchBox/>
             </main>
            
         </div>
