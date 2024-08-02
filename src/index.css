@@ -2,3 +2,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+:root{
+  @apply font-poppines box-border max-w-[100%]
+}
+
+.diveder{
+  position: relative;
+}
+
+.diveder::after,.diveder::before{
+  position: absolute;
+  content: "";
+  width: 30%;
+  height: 1px;
+  top: 50%;
+  background-color: rgb(245, 242, 242);
+}
+
+.diveder::after{
+  top: 50%;
+  right: 0;
+
+}
+.diveder::before{
+  top: 50%;
+  left:  0;
+  
+}
+
+
+
+
+.diveder-mobile{
+  position: relative;
+}
+
+.diveder-mobile::after,.diveder-mobile::before{
+  position: absolute;
+  content: "";
+  width: 20%;
+  height: 1px;
+  top: 50%;
+  background-color: rgb(245, 242, 242);
+}
+
+.diveder-mobile::after{
+  top: 50%;
+  right: 0;
+
+}
+.diveder-mobile::before{
+  top: 50%;
+  left:  0;
+  
+}

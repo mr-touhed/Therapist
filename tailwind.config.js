@@ -8,6 +8,7 @@ export default {
     colors:{
       primary:"#156BCA",
       heading:"#152A16",
+      white:"#FFFFFF"
     },
     fontFamily:{
         poppines:'Poppins, sans-serif'
