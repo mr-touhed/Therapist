@@ -6,7 +6,7 @@ import MobileMenu from "../components/MobileMenu";
 const MenuItems = () => {
     const [showmenu,setShowMenu] = useState(true)
     return (
-        <div className="md:w-[250px] px-4 md:p-0 max-w-[100vw] overflow-hidden  border-r border-[#d1d4d7] shadow-md md:min-h-[100vh]  flex md:flex-col justify-between items-center">
+        <div className=" px-4 md:p-0 max-w-[100vw] overflow-hidden  border-r border-[#d1d4d7] shadow-md md:min-h-[100vh]  flex md:flex-col justify-between items-center">
                     <div className="md:h-32 grid place-items-center">
                         <h1 className="text-2xl text-primary">Logo</h1>
                     </div>

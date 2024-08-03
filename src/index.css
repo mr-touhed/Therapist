@@ -60,3 +60,20 @@
   left:  0;
   
 }
+
+
+.therapi-slide .swiper-button-prev {
+  
+  @apply w-12 h-12 rounded-full bg-primary
+}
+
+.therapi-slide .swiper-button-next{
+  @apply w-12 h-12 rounded-full bg-primary 
+}
+
+.therapi-slide .swiper-button-next::after{
+  @apply text-white text-sm  
+}
+.therapi-slide .swiper-button-prev::after{
+  @apply text-white text-sm 
+}

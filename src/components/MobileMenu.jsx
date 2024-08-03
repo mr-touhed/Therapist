@@ -17,7 +17,7 @@ const MobileMenu = ({setShowMenu,showmenu}) => {
         })
     })
     return (
-        <nav data="close" className={`md:relative  fixed ${showmenu ? "right-0":"-right-[100vw]"} top-0 z-10 w-full bg-[#000000a6] backdrop-blur-sm h-screen transition-all ease-out`}>
+        <nav data="close" className={`md:hidden  fixed ${showmenu ? "right-0":"-right-[100vw]"} top-0 z-10 w-full bg-[#000000a6] backdrop-blur-sm h-screen transition-all ease-out`}>
                         
                         <div className=" md:w-full w-[60%]  min-h-screen md:m-0 ml-auto bg-white md:space-y-0 space-y-6">
                         <div className="h-[202px] bg-primary md:hidden  ">
