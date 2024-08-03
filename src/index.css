@@ -9,7 +9,9 @@
 }
 
 
-
+.heading{
+  @apply text-xl font-medium text-heading
+}
 .diveder{
   position: relative;
 }

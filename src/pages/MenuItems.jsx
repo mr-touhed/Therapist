@@ -4,13 +4,13 @@ import MobileMenu from "../components/MobileMenu";
 
 
 const MenuItems = () => {
-    const [showmenu,setShowMenu] = useState(true)
+    const [showmenu,setShowMenu] = useState(false)
     return (
         <div className=" px-4 md:p-0 max-w-[100vw] overflow-hidden  border-r border-[#d1d4d7] shadow-md md:min-h-[100vh]  flex md:flex-col justify-between items-center">
-                    <div className="md:h-32 grid place-items-center">
+                    <div className="md:h-32 grid place-items-center ">
                         <h1 className="text-2xl text-primary">Logo</h1>
                     </div>
-                    <div className="md:hidden block">
+                    <div className="md:hidden flex items-baseline gap-4">
                     <img src="/images/icons/Notification.png" alt="" className="" />
                         <button onClick={()=>setShowMenu(true)}>
                                 <img src="/images/icons/Menu_Alt_01.png" alt="" className="mt-4" />

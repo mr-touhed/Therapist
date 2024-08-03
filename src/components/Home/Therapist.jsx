@@ -14,7 +14,7 @@ import { Keyboard,  Navigation } from 'swiper/modules';
 const Therapist = () => {
     return (
         <div className="mt-6">
-            <h2 className="text-heading font-semibold text-lg">Featured Therapist</h2>
+            <h2 className="heading">Featured Therapist</h2>
 
             <div className="bg-white p-8 rounded-md  relative">
             <Swiper

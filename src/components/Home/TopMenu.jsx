@@ -4,7 +4,7 @@ import logout from "../../../public/images/icons/logout.png"
 
 const TopMenu = () => {
     return (
-        <div className="p-6 bg-white flex justify-between items-center">
+        <div className="p-6 bg-white md:flex justify-between items-center hidden ">
         <div className="flex items-center gap-6">
             <img src="" alt="" className="w-8 h-6 rounded-full" />
             <div>
