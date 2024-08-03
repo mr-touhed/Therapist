@@ -1,13 +1,17 @@
 
+import { useContext } from "react";
 import Cities from "../components/Home/Cities";
 import Featured from "../components/Home/Featured";
 import SearchBox from "../components/Home/SearchBox";
 import Therapist from "../components/Home/Therapist";
 import TopMenu from "../components/Home/TopMenu";
 import MenuItems from "./MenuItems";
+import { Authcontext } from "../provider/Providers";
 
 
 const Home = () => {
+    const {user,loading} = useContext(Authcontext);
+    if(loading) return "Loading....."
     return (
         <div className="grid md:grid-cols-[18%_82%] grid-cols-1">
             <aside>
