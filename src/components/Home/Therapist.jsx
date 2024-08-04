@@ -10,32 +10,14 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Keyboard,  Navigation } from 'swiper/modules';
-import { useEffect, useState } from "react";
-const Therapist = () => {
-    const [loading,setLoading] = useState(true); // data fetching loading state
-    const [error,setError] = useState('') // error handling state
-    const [therapist,setTherapist] = useState([]) // therapist data state
 
-    useEffect(()=>{
-        // fetching therapist data 
-      const fetch_therapist = async () =>{
-              try {
-                  const response = await fetch(`/json/featured.json`);
-                  const result  = await response.json();
-                  setTherapist(result)
-                  setLoading(false)
-              } catch (error) {
-                console.log(error);
-                setError(error.message)
-                setLoading(false)
-              }
-      }
+const Therapist = ({loading,error,therapist}) => {
+    
 
-      fetch_therapist()
-    },[])
+  
 
       if(loading) return <LoadingElement message="Loading....."/>
-      if(error) return <LoadingElement message="no data found yet's"/>
+      if(error) return <LoadingElement message={error}/>
     return (
         <div className="mt-6">
             <h2 className="heading">Featured Therapist</h2>

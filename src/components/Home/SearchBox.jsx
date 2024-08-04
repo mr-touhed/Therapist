@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-const SearchBox = () => {
+const SearchBox = ({search, setSearch}) => {
+
+    
     return (
         <div className="bg-white rounded-md  p-8 grid md:grid-cols-2 grid-cols-1 ">
                     <div className="space-y-2">
@@ -10,7 +12,7 @@ const SearchBox = () => {
                     </div>
                         
                         <div className="bg-[#EEF2F5] max-w-[470px] p-1 flex rounded-md">
-                        <input type="text" className="px-2 w-full bg-[#EEF2F5]"/>
+                        <input type="text" className="px-2 w-full bg-[#EEF2F5]" value={search} onChange={(e) => setSearch(e.target.value)}/>
                             <button className="bg-primary px-6 py-2 rounded-md text-white">Go</button>
                         </div>
                     </div>
