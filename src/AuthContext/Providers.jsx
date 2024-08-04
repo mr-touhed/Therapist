@@ -6,16 +6,16 @@ import { app } from "../utils/firebase.config";
 
 export const Authcontext = createContext(null);
 
-
+const auth = getAuth(app) 
 
 // eslint-disable-next-line react/prop-types
 const Providers = ({children}) => {
     const [currentUser,setCurrentUser] = useState(null); // user state 
     const [isLoading,setIsLoading] = useState(true) // loading state
-    const auth = getAuth(app) 
+   
     const GoogleProvider = new GoogleAuthProvider() // google provider
 
-    
+        
     const googleSing = async () =>{  
             try {
                 // google sign in handler 
@@ -79,14 +79,26 @@ const Providers = ({children}) => {
     }
 
     useEffect(() =>{
+        
+        // Set up the listener and return the unsubscribe function
+        const unsubscribe = onAuthStateChanged(auth, (user) =>{
+                try {
+                 setCurrentUser(user)
+                setIsLoading(false)
+                
+                } catch (error) {
+                        console.log(error);
+                }
+    
+                console.log("provider state ",user);
+            })
+        
+        // Clean up the listener on component unmount
+       return ()=> unsubscribe()
 
-        // get current user from firebase and set state
-        const unsubscribe = () => onAuthStateChanged(auth, (user) =>{
-            setCurrentUser(user)
-            setIsLoading(false)
-        })
-        return () => unsubscribe() // unsubscribe for unwanted rendering 
-    }, [auth])
+       
+        
+    }, [isLoading])
 
     const store = {  // provider store
         currentUser,
@@ -102,6 +114,8 @@ const Providers = ({children}) => {
         <Authcontext.Provider value={store}>
             {children}
         </Authcontext.Provider>
+
+     
     );
 };
 
