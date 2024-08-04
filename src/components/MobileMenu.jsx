@@ -29,27 +29,27 @@ const MobileMenu = ({setShowMenu,showmenu,user,logOut}) => {
                             <li>
                             
                                 <NavLink to="/" className={`bg-[#D4E9FF] flex items-center gap-3  border-l-4 p-3 border-[#102C4A] font-medium text-heading`}>
-                                <img src="/images/icons/Category.png" className="w-4 h-4" />
+                                <img src={"/images/icons/Category.png"} className="w-4 h-4" />
                                 Home
                                 </NavLink>
                             </li>
                             <li >
                             
                                 <NavLink className={`flex items-center gap-3   p-3`}>
-                                <img src="/images/icons/User.png" className="w-4 h-4" />
+                                <img src={"/images/icons/User.png"} className="w-4 h-4" />
                                     New Listing
                                     </NavLink>
                             </li>
                             <li className=" flex items-center gap-3   p-3   ">
-                            <img src="/images/icons/Search.png" className="w-4 h-4" />
+                            <img src={"/images/icons/Search.png"} className="w-4 h-4" />
                                 <NavLink>Search</NavLink>
                             </li>
                             <li className=" flex items-center gap-3   p-3   ">
-                            <img src="/images/icons/Paper.png" className="w-4 h-4" />
+                            <img src={"/images/icons/Paper.png"} className="w-4 h-4" />
                                 <NavLink>About</NavLink>
                             </li>
                             <li className=" flex items-center gap-3   p-3   ">
-                            <img src="/images/icons/fi_heart.png" className="w-4 h-4" />
+                            <img src={"/images/icons/fi_heart.png"} className="w-4 h-4" />
                                 <NavLink>Favorites</NavLink>
                             </li>
                                  <li className="border-b border-[#dedddd]  ">
@@ -59,15 +59,15 @@ const MobileMenu = ({setShowMenu,showmenu,user,logOut}) => {
 
                         <ul >
                         <li className=" flex items-center gap-3   px-3   ">
-                            <img src="/images/icons/Info_Circle.png" className="w-4 h-4" />
+                            <img src={"/images/icons/Info_Circle.png"} className="w-4 h-4" />
                                 <NavLink>Help Center</NavLink>
                             </li>
                         <li className=" flex items-center gap-3   p-3   ">
-                            <img src="/images/icons/Setting.png" className="w-4 h-4" />
+                            <img src={"/images/icons/Setting.png"} className="w-4 h-4" />
                                 <NavLink>Settings</NavLink>
                             </li>
                             <li className=" flex items-center gap-3   px-3   " onClick={logOut}>
-                            <img src="/images/icons/Info_Circle.png" className="w-4 h-4" />
+                            <img src={"/images/icons/Info_Circle.png"} className="w-4 h-4" />
                                 <button>Logout</button>
                             </li>
                         </ul>
