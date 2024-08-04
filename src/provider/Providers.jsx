@@ -1,7 +1,7 @@
 import { createContext,  useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import {GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup,signOut, updateProfile  } from "firebase/auth";
 import { app } from "../utils/firebase.config";
-import { GoogleAuthProvider } from "firebase/auth";
+
  
 
 export const Authcontext = createContext(null);
@@ -26,24 +26,30 @@ const Providers = ({children}) => {
     }
 
     const create_user  = async (username,email,password) => {
-        const data =  {message:"", status:false}
+        const info = {message:"", status:false}
         try {
-            //
+            
+            
             const create_user = await createUserWithEmailAndPassword(auth,email,password) 
             if(create_user){
                 //
-                    console.log(create_user);
-            }else{
-                //
                 
+                    if(create_user){
+                           await updateProfile(auth.currentUser, {displayName:username , photoURL: ""})
+                           info.status = true
+                            return info;
+                    }
+                    
+                    
+            }else{
+                info.message = "some things went's wrong";
+                info.status = false;
+                return info;
             }
         } catch (error) {
-            data.message = error.message;
-            data.status = false;
-            
-            console.log(error);
-                return data
-
+            info.message = error.message;
+            info.status = false;
+             return info
         }
     }
 
@@ -60,6 +66,16 @@ const Providers = ({children}) => {
             console.log(error);
         }
     }
+
+    const logOut = async () =>{
+        try {
+             await  signOut(auth);
+             setUser(null)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     useEffect(() =>{
 
         // get current user from firebase and set state
@@ -75,7 +91,8 @@ const Providers = ({children}) => {
         loading,
         googleSing,
         create_user,
-        login_with_email
+        login_with_email,
+        logOut
 
     }
 

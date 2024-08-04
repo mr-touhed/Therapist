@@ -3,7 +3,15 @@ import Input from "../Input";
 import CheckBox from "../CheckBox";
 import Button from "../Button";
 import PasswordInput from "../PasswordInput";
-const PcRegister = () => {
+
+
+// eslint-disable-next-line react/prop-types
+const PcRegister = ({handel_register,loading,error,user,input_handler}) => {
+        
+       
+
+   
+
     return (
         <div className="grid grid-cols-2 place-content-center m-4 gap-4"> 
                     <section className="max-w-[500px] ">
@@ -13,14 +21,15 @@ const PcRegister = () => {
                         <p className="font-normal">elcome Back! By click the sign up button, you&lsquo;re agree tobZenitood Terms and Service and acknlowledge the <br/><Link className="text-primary underline">Privacy and Policy</Link></p>
                             </div>
 
-                            <form action="" className="space-y-4 mt-8">
-                                <Input label="Name" placeholder="@username" type="text"/>
-                                <Input label="Email" placeholder="Enter your email" type="email"/>
+                            <form onSubmit={handel_register} className="space-y-4 mt-8">
+                                <Input onChange={(e)=> input_handler(e)} value={user.username} label="Name" placeholder="@username" type="text" name="username" required/>
+                                <Input onChange={(e)=> input_handler(e)} value={user.email} label="Email" placeholder="Enter your email" type="email" name="email" required/>
                                                              
-                                <PasswordInput label="Password" placeholder="Enter your password" />
-                                <PasswordInput label="Confirm password" placeholder="Re-type password" />
-                                <CheckBox/>
-                                <Button>Sign up</Button>
+                                <PasswordInput onChange={(e)=> input_handler(e)} value={user.password} label="Password" placeholder="Enter your password" name="password"  required/>
+                                <PasswordInput onChange={(e)=> input_handler(e)} value={user.confirmPass} label="Confirm password" placeholder="Re-type password" name="confirmPass" required/>
+                                <CheckBox required/>
+                                <Button disabled={loading}>Sign up</Button>
+                                    <p className="text-xs font-light text-balance text-[#fc5f5f]">{error}</p>
                                 <p className="text-sm">Already Have an Account? <Link to="/login" className="text-primary underline">Log in</Link></p>
                             </form>
                     </section>

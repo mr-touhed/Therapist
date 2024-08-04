@@ -1,24 +1,26 @@
 
-import { useContext } from "react";
+
 import Cities from "../components/Home/Cities";
 import Featured from "../components/Home/Featured";
 import SearchBox from "../components/Home/SearchBox";
 import Therapist from "../components/Home/Therapist";
 import TopMenu from "../components/Home/TopMenu";
 import MenuItems from "./MenuItems";
-import { Authcontext } from "../provider/Providers";
+import useContextHooks from "../utils/useContextHooks";
+
 
 
 const Home = () => {
-    const {user,loading} = useContext(Authcontext);
+    const {user,loading,logOut} = useContextHooks(); // auth context hooks  
     if(loading) return "Loading....."
+   
     return (
         <div className="grid md:grid-cols-[18%_82%] grid-cols-1">
             <aside>
-                <MenuItems/>
+                <MenuItems user={user} />
             </aside>
             <main className="bg-[#EEF2F5] flex-1 p-1 md:p-0">
-                    <TopMenu/>
+                    <TopMenu logOut={logOut} user={user}/>
                    <div className="md:m-8">
                    <SearchBox/>
                    <Therapist/>

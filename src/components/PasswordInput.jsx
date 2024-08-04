@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { GoEye } from "react-icons/go";
 // eslint-disable-next-line react/prop-types
-const PasswordInput = ({name,label ,placeholder},props) => {
+const PasswordInput = ({name,label ,placeholder,...props}) => {
 
     const [showpassword,setShowPassword] = useState(false)
   return (

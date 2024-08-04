@@ -6,7 +6,7 @@ import Button from "../Button";
 import { Link } from "react-router-dom";
 
 
-const MobileRegister = () => {
+const MobileRegister = ({handel_register,loading,error,user,input_handler}) => {
     const [login,setLoagin] = useState(false)
     return (
         <div className="w-full min-h-screen relative bg-cover text-center px-8 pt-6 " style={{backgroundImage:"url(/images/mobile_auth_bg.png)"}}>
@@ -34,18 +34,20 @@ const MobileRegister = () => {
                     }
                 </div>
 
-                <div className={`bg-white w-full h-screen fixed left-0 p-4  text-left rounded-3xl ${login ? "top-[25%]":"top-[100%]"} transition-all ease-out `}>
+                <div className={`bg-white w-full h-screen fixed left-0 p-4  text-left rounded-3xl ${login ? "top-[20%]":"top-[100%]"} transition-all ease-out `}>
 
 
                                 <h2 className="text-nowrap text-center text-lg">Sign In</h2>
-                                <form className="flex flex-col">
-                                        <Input label="Name" placeholder="@username" />
-                                        <Input label="Email" placeholder="Enter your email" />
-                                        <PasswordInput label="Password" placeholder="Enter your password"/>
-                                        <PasswordInput label="Confirm Password" placeholder="Re-type password"/>
-                                        <CheckBox/>
-                                        <Button className="mx-auto  ">Sign up</Button>
-                                        <p className="text-sm ">Already Have an Account?  <Link to="/login" className="text-primary underline">Log in</Link></p>
+                                <form onSubmit={handel_register} className="flex flex-col">
+                                <Input onChange={(e)=> input_handler(e)} value={user.username} label="Name" placeholder="@username" type="text" name="username" required/>
+                                <Input onChange={(e)=> input_handler(e)} value={user.email} label="Email" placeholder="Enter your email" type="email" name="email" required/>
+                                                             
+                                <PasswordInput onChange={(e)=> input_handler(e)} value={user.password} label="Password" placeholder="Enter your password" name="password"  required/>
+                                <PasswordInput onChange={(e)=> input_handler(e)} value={user.confirmPass} label="Confirm password" placeholder="Re-type password" name="confirmPass" required/>
+                                <CheckBox required/>
+                                <Button disabled={loading}>Sign up</Button>
+                                    <p className="text-xs font-light text-balance text-[#fc5f5f]">{error}</p>
+                                <p className="text-sm">Already Have an Account? <Link to="/login" className="text-primary underline">Log in</Link></p>
                                 </form>
                     </div>
         </div>
