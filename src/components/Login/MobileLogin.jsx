@@ -1,14 +1,14 @@
 import { useState } from "react";
 import Input from "../Input";
 import PasswordInput from "../PasswordInput";
-import CheckBox from "../CheckBox";
 import Button from "../Button";
 import GoogleBtn from "../GoogleBtn";
 import FacebookBtn from "../FacebookBtn";
 import { Link } from "react-router-dom";
 
 
-const MobileLogin = () => {
+// eslint-disable-next-line react/prop-types
+const MobileLogin = ({input_handler,handel_login,error,loading,user}) => {
     const [login,setLoagin] = useState(false)
     return (
         <div className="w-full min-h-screen relative bg-cover text-center px-8 pt-6 " style={{backgroundImage:"url(/images/mobile_auth_bg.png)"}}>
@@ -36,10 +36,10 @@ const MobileLogin = () => {
                     }
                 </div>
 
-                <div className={`bg-white w-full h-screen fixed left-0 p-4  text-left rounded-3xl ${login ? "top-[25%]":"top-[100%]"} transition-all ease-out `}>
+                <div className={`bg-white w-full h-screen fixed left-0 p-4  text-left rounded-3xl ${login ? "top-[20%]":"top-[100%]"} transition-all ease-out `}>
 
 
-                                <div className="space-y-6">
+                                <div className="space-y-4">
                                 <div>
                                 <h2 className="text-nowrap text-center text-lg">Log In To Your Account</h2>
                                 <p className="font-light text-sm">Welcome Back! Select a method to log in:</p>
@@ -52,14 +52,20 @@ const MobileLogin = () => {
                                     
                                     <div className="diveder-mobile text-center text-sm ">Or Continue with Email</div>
                                 </div>
-                                <form className="flex flex-col">
-                                    
-                                        <Input label="Email" placeholder="Enter your email" />
-                                        <PasswordInput label="Password" placeholder="Enter your password"/>
-                                        
-                                        <CheckBox/>
-                                        <Button className="mx-auto  ">Sign in</Button>
+                                <form onSubmit={handel_login} className="space-y-2 mt-0">
+                                
+                                <Input value={user.email} onChange={(e)=>input_handler(e)} label="Email" placeholder="Enter your email" type="email" name="email" required/>
+                                                             
+                                <PasswordInput value={user.password} onChange={(e)=>input_handler(e)} label="Password" placeholder="Enter your password" name="password" required/>
+                                
+                                <div className="flex justify-between">
+                               
+                                <Link to="/" className="text-primary text-sm underline">Forgot password?</Link>
+                                </div>
+                                <Button disabled={loading}>Sign in</Button>
+                      
                                 </form>
+                                <p className="text-xs font-light text-balance text-[#fc5f5f]">{error}</p>
                                 <p className="text-sm mt-4">Don’t Have an Account? <Link to="/register" className="text-primary underline">Create Account</Link></p>
                     </div>
         </div>

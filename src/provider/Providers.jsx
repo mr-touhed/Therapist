@@ -10,8 +10,8 @@ export const Authcontext = createContext(null);
 
 // eslint-disable-next-line react/prop-types
 const Providers = ({children}) => {
-    const [user,setUser] = useState(null); // user state 
-    const [loading,setLoading] = useState(true) // loading state
+    const [currentUser,setCurrentUser] = useState(null); // user state 
+    const [isLoading,setIsLoading] = useState(true) // loading state
     const auth = getAuth(app) 
     const GoogleProvider = new GoogleAuthProvider() // google provider
 
@@ -24,23 +24,18 @@ const Providers = ({children}) => {
                 console.log(error);
             }
     }
-
+    // cerate user handler
     const create_user  = async (username,email,password) => {
         const info = {message:"", status:false}
         try {
-            
-            
-            const create_user = await createUserWithEmailAndPassword(auth,email,password) 
+             const create_user = await createUserWithEmailAndPassword(auth,email,password) // cerate user function firebase
             if(create_user){
-                //
-                
-                    if(create_user){
-                           await updateProfile(auth.currentUser, {displayName:username , photoURL: ""})
+                // if(create_user)
+                    {
+                           await updateProfile(auth.currentUser, {displayName:username , photoURL: ""}) // current user updated user name
                            info.status = true
                             return info;
                     }
-                    
-                    
             }else{
                 info.message = "some things went's wrong";
                 info.status = false;
@@ -49,28 +44,35 @@ const Providers = ({children}) => {
         } catch (error) {
             info.message = error.message;
             info.status = false;
-             return info
+             return info // return error data
         }
     }
 
     // login with email 
     const login_with_email = async (email,password) =>{
+        const info = {message:"", status:false}
         try {
             //
-            const result  = await signInWithEmailAndPassword(auth,email,password ) 
+            const result  = await signInWithEmailAndPassword(auth,email,password )  // sign in function  
             if(result){
-                console.log(result );
+                info.status = true;
+                info.message = result;
+                return info // return after login success
+                
             }
         } catch (error) {
             //
             console.log(error);
+            info.message = error.message;
+            info.status = false;
+             return info
         }
     }
-
+    // logout current user function 
     const logOut = async () =>{
         try {
              await  signOut(auth);
-             setUser(null)
+             setCurrentUser(null)
         } catch (error) {
             console.log(error);
         }
@@ -80,15 +82,15 @@ const Providers = ({children}) => {
 
         // get current user from firebase and set state
         const unsubscribe = () => onAuthStateChanged(auth, (user) =>{
-            setUser(user)
-            setLoading(false)
+            setCurrentUser(user)
+            setIsLoading(false)
         })
         return () => unsubscribe() // unsubscribe for unwanted rendering 
     }, [auth])
 
     const store = {  // provider store
-        user,
-        loading,
+        currentUser,
+        isLoading,
         googleSing,
         create_user,
         login_with_email,

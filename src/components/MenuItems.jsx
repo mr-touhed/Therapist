@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import MobileMenu from "../components/MobileMenu";
+import MobileMenu from "./MobileMenu";
 
 
-const MenuItems = () => {
-    const [showmenu,setShowMenu] = useState(false)
+// eslint-disable-next-line react/prop-types
+const MenuItems = ({user,logOut}) => {
+    const [showmenu,setShowMenu] = useState(false) // show menu state
     return (
         <div className=" px-4 md:p-0 max-w-[100vw] overflow-hidden  border-r border-[#d1d4d7] shadow-md md:min-h-[100vh]  flex md:flex-col justify-between items-center">
                     <div className="md:h-32 grid place-items-center ">
@@ -64,7 +65,7 @@ const MenuItems = () => {
 
                     
                     
-                    <MobileMenu setShowMenu={setShowMenu} showmenu={showmenu}/>
+                    <MobileMenu setShowMenu={setShowMenu} showmenu={showmenu} user={user} logOut={logOut}/>
                     
 
 

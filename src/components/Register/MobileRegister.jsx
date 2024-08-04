@@ -6,6 +6,7 @@ import Button from "../Button";
 import { Link } from "react-router-dom";
 
 
+// eslint-disable-next-line react/prop-types
 const MobileRegister = ({handel_register,loading,error,user,input_handler}) => {
     const [login,setLoagin] = useState(false)
     return (
@@ -56,3 +57,4 @@ const MobileRegister = ({handel_register,loading,error,user,input_handler}) => {
 
 
 export default MobileRegister;
+

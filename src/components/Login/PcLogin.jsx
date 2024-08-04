@@ -1,12 +1,12 @@
 
 import Input from "../Input";
-import CheckBox from "../CheckBox";
 import Button from "../Button";
 import PasswordInput from "../PasswordInput";
 import GoogleBtn from "../GoogleBtn";
 import FacebookBtn from "../FacebookBtn";
 import { Link } from "react-router-dom";
-const PcLogin = () => {
+// eslint-disable-next-line react/prop-types
+const PcLogin = ({input_handler,handel_login,error,loading,user}) => {
     return (
         <div className="grid grid-cols-2 place-content-center m-4 gap-4"> 
                     <section className="max-w-[500px] ">
@@ -25,17 +25,18 @@ const PcLogin = () => {
                                 
                             </div>
                             
-                            <form action="" className="space-y-4 mt-8">
+                            <form onSubmit={handel_login} className="space-y-4 mt-8">
                                 
-                                <Input label="Email" placeholder="Enter your email" type="email"/>
+                                <Input value={user.email} onChange={(e)=>input_handler(e)} label="Email" placeholder="Enter your email" type="email" name="email" required/>
                                                              
-                                <PasswordInput label="Password" placeholder="Enter your password" />
+                                <PasswordInput value={user.password} onChange={(e)=>input_handler(e)} label="Password" placeholder="Enter your password" name="password" required/>
                                 
                                 <div className="flex justify-between">
-                                <CheckBox/>
+                               
                                 <Link to="/" className="text-primary text-sm underline">Forgot password?</Link>
                                 </div>
-                                <Button>Sign in</Button>
+                                <Button disabled={loading}>Sign in</Button>
+                                <p className="text-xs font-light text-balance text-[#fc5f5f]">{error}</p>
                                 <p className="text-sm">Don’t Have an Account?  <Link to="/register" className="text-primary underline">Create Account</Link></p>
                             </form>
                     </section>
