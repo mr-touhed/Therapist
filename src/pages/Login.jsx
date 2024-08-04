@@ -2,7 +2,7 @@
 import MobileLogin from "../components/Login/MobileLogin";
 import PcLogin from "../components/Login/PcLogin";
 import { Navigate, useNavigate } from "react-router-dom";
-
+import Loading from "../components/Loading"
 import { useState } from "react";
 import useContextHooks from "../hooks/useContextHooks";
 
@@ -44,7 +44,7 @@ const Login = () => {
     }
 
 
-    if(isLoading ) return <h2 className="text-2xl text-center">Loading.....</h2>;
+    if(isLoading ) return <Loading/>;
     if(currentUser) return <Navigate to="/" replace={true} /> // login user redirect home page
     return (
         <>

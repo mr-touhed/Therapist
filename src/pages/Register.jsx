@@ -4,6 +4,7 @@ import PcRegister from "../components/Register/PcRegister";
 
 import { Navigate, useNavigate } from "react-router-dom";
 import useContextHooks from "../hooks/useContextHooks";
+import Loading from "../components/Loading";
 
 
 
@@ -43,7 +44,7 @@ const Register = () => {
         }
 
 
-        if(isLoading) return "Loading..."
+        if(isLoading) return <Loading/>
         if(currentUser) return <Navigate to="/"/>
     return (
         <>

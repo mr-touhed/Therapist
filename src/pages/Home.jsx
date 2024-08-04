@@ -8,8 +8,8 @@ import MenuItems from "../components/MenuItems";
 import useContextHooks from "../hooks/useContextHooks";
 
 const Home = () => {
-  const { currentUser, isLoading, logOut } = useContextHooks(); // auth context hooks
-  if (isLoading) return "Loading.....";
+  const { currentUser, logOut } = useContextHooks(); // auth context hooks
+  
 
   return (
     <div className="grid md:grid-cols-[18%_82%] grid-cols-1">
