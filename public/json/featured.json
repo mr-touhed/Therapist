@@ -1,0 +1,44 @@
+[
+    {
+        "id":"1",
+        "name":"Alexander Cort",
+        "location":"123 Elm Street, New York",
+        "title":"Mobile & In-Studio",
+        "img":"https://i.ibb.co/RjGJsRG/1.png"
+    },
+    {
+        "id":"2",
+        "name":"Michael Smith",
+        "location":"789 Maple Drive, NY",
+        "title":"Mobile & In-Studio",
+        "img":"https://i.ibb.co/QJbPFhk/2.png"
+    },
+    {
+        "id":"3",
+        "name":"David Martinez",
+        "location":"Pine Street, San Fran",
+        "title":"Mobile & In-Studio",
+        "img":"https://i.ibb.co/LJdGcDt/3.png"
+    },
+    {
+        "id":"4",
+        "name":"Jennifer Lee",
+        "location":"567 Cedar Lane, Miami",
+        "title":"Mobile & In-Studio",
+        "img":"https://i.ibb.co/wLtdRJw/4.png"
+    },
+    {
+        "id":"5",
+        "name":"Michael Smith",
+        "location":"789 Maple Drive, NY",
+        "title":"Mobile & In-Studio",
+        "img":"https://i.ibb.co/QJbPFhk/2.png"
+    },
+    {
+        "id":"6",
+        "name":"David Martinez",
+        "location":"Pine Street, San Fran",
+        "title":"Mobile & In-Studio",
+        "img":"https://i.ibb.co/LJdGcDt/3.png"
+    }
+]

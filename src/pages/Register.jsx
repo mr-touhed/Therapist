@@ -1,8 +1,9 @@
 import { useState } from "react";
 import MobileRegister from "../components/Register/MobileRegister";
 import PcRegister from "../components/Register/PcRegister";
-import useContextHooks from "../utils/useContextHooks";
+
 import { Navigate, useNavigate } from "react-router-dom";
+import useContextHooks from "../hooks/useContextHooks";
 
 
 

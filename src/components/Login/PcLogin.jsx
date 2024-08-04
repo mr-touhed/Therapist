@@ -5,6 +5,7 @@ import PasswordInput from "../PasswordInput";
 import GoogleBtn from "../GoogleBtn";
 import FacebookBtn from "../FacebookBtn";
 import { Link } from "react-router-dom";
+import CheckBox from "../CheckBox";
 // eslint-disable-next-line react/prop-types
 const PcLogin = ({input_handler,handel_login,error,loading,user}) => {
     return (
@@ -32,12 +33,12 @@ const PcLogin = ({input_handler,handel_login,error,loading,user}) => {
                                 <PasswordInput value={user.password} onChange={(e)=>input_handler(e)} label="Password" placeholder="Enter your password" name="password" required/>
                                 
                                 <div className="flex justify-between">
-                               
+                                <CheckBox required text="Remember me" className="text-[#5C635A] text-sm" />
                                 <Link to="/" className="text-primary text-sm underline">Forgot password?</Link>
                                 </div>
                                 <Button disabled={loading}>Sign in</Button>
                                 <p className="text-xs font-light text-balance text-[#fc5f5f]">{error}</p>
-                                <p className="text-sm">Don’t Have an Account?  <Link to="/register" className="text-primary underline">Create Account</Link></p>
+                                <p className="text-sm ">Don’t Have an Account?  <Link to="/register" className="text-primary underline">Create Account</Link></p>
                             </form>
                     </section>
 

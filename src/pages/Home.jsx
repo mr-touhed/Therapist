@@ -5,7 +5,7 @@ import Therapist from "../components/Home/Therapist";
 import TopMenu from "../components/Home/TopMenu";
 import MenuItems from "../components/MenuItems";
 
-import useContextHooks from "../utils/useContextHooks";
+import useContextHooks from "../hooks/useContextHooks";
 
 const Home = () => {
   const { currentUser, isLoading, logOut } = useContextHooks(); // auth context hooks

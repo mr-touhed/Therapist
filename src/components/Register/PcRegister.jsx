@@ -27,7 +27,7 @@ const PcRegister = ({handel_register,loading,error,user,input_handler}) => {
                                                              
                                 <PasswordInput onChange={(e)=> input_handler(e)} value={user.password} label="Password" placeholder="Enter your password" name="password"  required/>
                                 <PasswordInput onChange={(e)=> input_handler(e)} value={user.confirmPass} label="Confirm password" placeholder="Re-type password" name="confirmPass" required/>
-                                <CheckBox required/>
+                                <CheckBox required text="Accept Terms of Service" className="text-md text-primary"/>
                                 <Button disabled={loading}>Sign up</Button>
                                     <p className="text-xs font-light text-balance text-[#fc5f5f]">{error}</p>
                                 <p className="text-sm">Already Have an Account? <Link to="/login" className="text-primary underline">Log in</Link></p>

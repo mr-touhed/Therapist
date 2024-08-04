@@ -5,6 +5,7 @@ import Button from "../Button";
 import GoogleBtn from "../GoogleBtn";
 import FacebookBtn from "../FacebookBtn";
 import { Link } from "react-router-dom";
+import CheckBox from "../CheckBox";
 
 
 // eslint-disable-next-line react/prop-types
@@ -59,8 +60,8 @@ const MobileLogin = ({input_handler,handel_login,error,loading,user}) => {
                                 <PasswordInput value={user.password} onChange={(e)=>input_handler(e)} label="Password" placeholder="Enter your password" name="password" required/>
                                 
                                 <div className="flex justify-between">
-                               
-                                <Link to="/" className="text-primary text-sm underline">Forgot password?</Link>
+                                <CheckBox required text="Remember me" className="text-[#5C635A] text-xs" />
+                                <Link to="/" className="text-primary text-xs underline">Forgot password?</Link>
                                 </div>
                                 <Button disabled={loading}>Sign in</Button>
                       
